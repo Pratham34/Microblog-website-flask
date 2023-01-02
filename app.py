@@ -1,13 +1,17 @@
 import datetime
+import os
 from flask import Flask,render_template,request
 
 # This is gonna allow us to open up a client side session to MongoDB that we can then use to connect to our database.
 from pymongo import MongoClient
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def create_app():
     app = Flask(__name__)
 
-    client = MongoClient("mongodb+srv://Pratham34:HELLOMOGODB5@microblog-application.uqkgoph.mongodb.net/test")
+    client = MongoClient(os.environ.get("MONGODB_URI"))
     app.db = client.microblog
 
     # entries = []

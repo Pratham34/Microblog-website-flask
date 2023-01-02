@@ -13,7 +13,6 @@ Install Flask via pip:
 pip install Flask
 
 
-
 then in app.py :- 
 can do something like :-
 
@@ -26,9 +25,24 @@ app = Flask(__name__)
 def hello_world():
     return "Hello, World!"
 
+---------------------------------
+$env:FLASK_APP = "app.py"
+$env:FLASK_ENV = "development"
+
+---------------------------------
+
+In the virtual env can do :-
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+
 
 Then  lastly in terminal do:-
 flask run
+
+
+
+
+NOTE:- on changing file locations , venv can give silly errors like not recognizing pip or flask whatever. in that case just delete venv folder and create a new one through above process.
 
 
 
